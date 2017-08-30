@@ -4,7 +4,7 @@
   Description: Script for TwitchTV project
 */
 
-var channels = ["freecodecamp", "kindafunnygames", "ESL_SC2", "OgamingSC2", "cretetion", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+var channels = ["freecodecamp", "kindafunnygames", "brownman", "jacksepticeye", "ESL_SC2", "OgamingSC2", "cretetion", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
 function updateCount(status) {
   var allCount = parseInt($("#all-bdg").html());
@@ -42,11 +42,12 @@ function getInfo() {
         var description = ": " + data.status;
         description = status === "on" ? description : "";
         var label = status === "on" ? "badge-success" : "badge-danger";
-        var html = '<div class="row ' + status + '"><div class="col-4 col-sm-3" id="icon">' +
+        var html = '<div class="row ' + status + '"><div class="col-4 col-sm-3 col-md-2" id="icon">' +
         '<span class="led led-' + status + '"></span><img src="' + logo +
-        '"></div><div class="col-4 col-sm-3" id="name"><a href="' + data.url +
-        '" target="_blank">' + name + '</a></div><div class="col-4 col-sm-6" id="info">' +
-        game + '<span class="hidden-xs-down">' + description + '</span></div></div>';
+        '"></div><div class="col-5 col-sm-4 col-md-3" id="name"><a href="' + data.url +
+        '" target="_blank">' + name + '</a></div><div class="col-3 col-sm-4 col-md-7" id="info"' +
+        'data-toggle="tooltip" data-placement="bottom" title="' + game + description + '">' + game +
+        '<span class="hidden-xs-down">' + description + '</span></div></div>';
         status === "on" ? $(".content").prepend(html) : $(".content").append(html);
         updateCount(status);
       });
@@ -55,10 +56,31 @@ function getInfo() {
 }
 
 $(document).ready(function() {
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
   getInfo();
 
   $(".btn-filter").on("click", function() {
-
+    var button = $(this);
+    var status = button.attr("id");
+    if (!button.hasClass("active")) {
+      $(".active").removeClass("active");
+      if (status === "on") {
+        $(".on").show();
+        $(".off").hide();
+      }
+      else if (status === "off") {
+        $(".off").show();
+        $(".on").hide();
+      }
+      else {
+        $(".on").show();
+        $(".off").show();
+      }
+      button.addClass("active");
+    }
   });
 });
 

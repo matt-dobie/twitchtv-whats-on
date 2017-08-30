@@ -4,15 +4,15 @@
   Description: Styles for TwitchTV project
 */
 
-* {
-  box-sizing: border-box;
-}
 
 $background: white;
 $twitch: #6441A4;
 $twitch-light: #7855B8;
 $twitch-dark: #5A379A;
 
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: $background;
@@ -35,7 +35,7 @@ body {
 }
 
 .btn-group {
-  margin: 20px auto;
+  margin: 20px auto 30px;
 }
 
 .btn-filter {
@@ -44,9 +44,12 @@ body {
   letter-spacing: 1px;
   color: white;
   border: solid 1px $twitch-dark;
+  cursor: pointer;
   .badge {
     background: white;
     color: $twitch;
+    padding: 0.3em;
+    margin-left: 0.7em;
   }
   &:hover, &:focus {
     background: $twitch-light;
@@ -56,9 +59,12 @@ body {
 .btn.active {
   box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
   background: $twitch-dark;
+  cursor: default;
 }
 
 .content {
+  text-align: left;
+  margin-bottom: 100px;
   .row {
     margin: 2px 0;
     line-height: 50px;
@@ -80,11 +86,16 @@ body {
     height: 40px;
     margin-left: 10px;
   }
-  .badge {
-    font-size: 1em;
-    vertical-align: baseline;
-    margin-top: 1.5em;
+
+  a {
+    text-decoration: none;
+    color: $twitch;
     padding: 0.5em;
+    border-radius: 0.5em;
+    &:hover {
+      color: white;
+      background: $twitch;
+    }
   }
 }
 
@@ -109,15 +120,33 @@ body {
 }
 
 footer {
-  margin-top: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 1px;
+  font-style: italic;
+  background: $twitch-dark;
+  color: white;
+  a {
+    text-decoration: none;
+    color: white;
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: $twitch-light;
+    }
+  }
 }
 
 @media (min-width: 576px) {
+   body {
+    font-size: 12px;
+  }
   .btn-filter {
     width: 150px;
-  }
-  .content {
-    text-align: left;
   }
 }
 

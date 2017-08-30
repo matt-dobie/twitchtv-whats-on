@@ -26,7 +26,7 @@ body {
 }
 
 .btn-group {
-  margin: 20px auto;
+  margin: 20px auto 30px;
 }
 
 .btn-filter {
@@ -35,11 +35,14 @@ body {
   letter-spacing: 1px;
   color: white;
   border: solid 1px #5A379A;
+  cursor: pointer;
 }
 
 .btn-filter .badge {
   background: white;
   color: #6441A4;
+  padding: 0.3em;
+  margin-left: 0.7em;
 }
 
 .btn-filter:hover, .btn-filter:focus {
@@ -49,6 +52,12 @@ body {
 .btn.active {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   background: #5A379A;
+  cursor: default;
+}
+
+.content {
+  text-align: left;
+  margin-bottom: 100px;
 }
 
 .content .row {
@@ -73,11 +82,16 @@ body {
   margin-left: 10px;
 }
 
-.content .badge {
-  font-size: 1em;
-  vertical-align: baseline;
-  margin-top: 1.5em;
+.content a {
+  text-decoration: none;
+  color: #6441A4;
   padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.content a:hover {
+  color: white;
+  background: #6441A4;
 }
 
 .led {
@@ -103,15 +117,36 @@ body {
 }
 
 footer {
-  margin-top: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 1px;
+  font-style: italic;
+  background: #5A379A;
+  color: white;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:visited {
+  color: white;
+}
+
+footer a:hover {
+  color: #7855B8;
 }
 
 @media (min-width: 576px) {
+  body {
+    font-size: 12px;
+  }
   .btn-filter {
     width: 150px;
-  }
-  .content {
-    text-align: left;
   }
 }
 
