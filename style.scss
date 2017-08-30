@@ -1,0 +1,142 @@
+/*
+  Author: Matthew Dobie
+  Author URL: mattdobie.com
+  Description: Styles for TwitchTV project
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+$background: white;
+$twitch: #6441A4;
+$twitch-light: #7855B8;
+$twitch-dark: #5A379A;
+
+
+body {
+  background-color: $background;
+  font-family: 'Play', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  color: $twitch;
+  text-align: center;
+}
+
+.header {
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 8vh;
+    font-size: 3.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: $twitch;
+  }
+}
+
+.btn-group {
+  margin: 20px auto;
+}
+
+.btn-filter {
+  background-color: $twitch;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  color: white;
+  border: solid 1px $twitch-dark;
+  .badge {
+    background: white;
+    color: $twitch;
+  }
+  &:hover, &:focus {
+    background: $twitch-light;
+  }
+}
+
+.btn.active {
+  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+  background: $twitch-dark;
+}
+
+.content {
+  .row {
+    margin: 2px 0;
+    line-height: 50px;
+    padding: 5px;
+  }
+
+  #name, #info {
+    line-height: 50px;
+  }
+
+  #info {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+  }
+  .badge {
+    font-size: 1em;
+    vertical-align: baseline;
+    margin-top: 1.5em;
+    padding: 0.5em;
+  }
+}
+
+.led {
+  display: inline-block;
+  margin-top: 20px;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  &.led-on{
+    background-color: #00FF00;
+    color:  #00FF00;
+  }
+  &.led-off {
+    background-color: #ff4c4c;
+    color:  #ff4c4c;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+@media (min-width: 576px) {
+  .btn-filter {
+    width: 150px;
+  }
+  .content {
+    text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  .btn-filter {
+    width: 200px;
+  }
+  .content {
+    img {
+      width: 50px;
+      height: 50px;
+      margin-left: 15px;
+    }
+  }
+  .led {
+    height: 10px;
+    width: 10px;
+  }
+}
