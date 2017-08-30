@@ -4,8 +4,10 @@
   Description: Script for TwitchTV project
 */
 
+// Twitch channels to track
 var channels = ["freecodecamp", "kindafunnygames", "brownman", "jacksepticeye", "ESL_SC2", "OgamingSC2", "cretetion", "habathcx", "RobotCaleb", "noobs2ninjas"];
 
+// Function to update count on badges
 function updateCount(status) {
   var allCount = parseInt($("#all-bdg").html());
   var count = parseInt($("#" + status + "-bdg").html());
@@ -15,6 +17,7 @@ function updateCount(status) {
   $("#" + status + "-bdg").html(count);
 }
 
+// Get info from API
 function getInfo() {
   channels.forEach(function(channel) {
     var url = "https://wind-bow.gomix.me/twitch-api/streams/" + channel + "?callback=?";
@@ -42,10 +45,10 @@ function getInfo() {
         var description = ": " + data.status;
         description = status === "on" ? description : "";
         var label = status === "on" ? "badge-success" : "badge-danger";
-        var html = '<div class="row ' + status + '"><div class="col-4 col-sm-3 col-md-2" id="icon">' +
+        var html = '<div class="row ' + status + '"><div class="col-4 col-sm-3 col-md-2 icon">' +
         '<span class="led led-' + status + '"></span><img src="' + logo +
-        '"></div><div class="col-5 col-sm-4 col-md-3" id="name"><a href="' + data.url +
-        '" target="_blank">' + name + '</a></div><div class="col-3 col-sm-4 col-md-7" id="info"' +
+        '"></div><div class="col-5 col-sm-4 name"><a href="' + data.url +
+        '" target="_blank">' + name + '</a></div><div class="col-3 col-sm-4 col-md-6 info"' +
         'data-toggle="tooltip" data-placement="bottom" title="' + game + description + '">' + game +
         '<span class="hidden-xs-down">' + description + '</span></div></div>';
         status === "on" ? $(".content").prepend(html) : $(".content").append(html);
@@ -55,13 +58,18 @@ function getInfo() {
   });
 }
 
+// Main function
 $(document).ready(function() {
+
+  // Initialise tooltips
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
 
+  // Get info from API
   getInfo();
 
+  // Filter buttons
   $(".btn-filter").on("click", function() {
     var button = $(this);
     var status = button.attr("id");
@@ -82,5 +90,5 @@ $(document).ready(function() {
       button.addClass("active");
     }
   });
-});
 
+});

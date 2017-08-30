@@ -5,11 +5,14 @@
 */
 
 
+// Variables
 $background: white;
 $twitch: #6441A4;
 $twitch-light: #7855B8;
 $twitch-dark: #5A379A;
 
+
+// General styles
 * {
   box-sizing: border-box;
 }
@@ -23,33 +26,50 @@ body {
   text-align: center;
 }
 
+
+// Header styles
 .header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: white;
+  z-index: 100;
   h1 {
-    font-family: 'Roboto', sans-serif;
-    margin-top: 8vh;
+    margin-top: 6vh;
     font-size: 3.8em;
     font-weight: bold;
     letter-spacing: 1px;
     color: $twitch;
+    text-align: center;
   }
 }
 
+
+// Filter button styles
 .btn-group {
-  margin: 20px auto 30px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
 }
 
 .btn-filter {
-  background-color: $twitch;
+  width: 33.5vw;
   font-size: 1.3em;
   letter-spacing: 1px;
+  background-color: $twitch;
   color: white;
   border: solid 1px $twitch-dark;
+  border-radius: 0;
   cursor: pointer;
   .badge {
-    background: white;
-    color: $twitch;
     padding: 0.3em;
     margin-left: 0.7em;
+    background: white;
+    color: $twitch;
   }
   &:hover, &:focus {
     background: $twitch-light;
@@ -62,31 +82,30 @@ body {
   cursor: default;
 }
 
+
+// Main content styling
 .content {
+  margin: 60px auto 80px;
+  z-index: 0;
   text-align: left;
-  margin-bottom: 100px;
   .row {
     margin: 2px 0;
     line-height: 50px;
     padding: 5px;
   }
-
-  #name, #info {
+  .name, .info {
     line-height: 50px;
   }
-
-  #info {
+  .info {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-
   img {
     width: 40px;
     height: 40px;
     margin-left: 10px;
   }
-
   a {
     text-decoration: none;
     color: $twitch;
@@ -101,17 +120,16 @@ body {
 
 .led {
   display: inline-block;
-  margin-top: 20px;
   height: 8px;
   width: 8px;
   border-radius: 50%;
   &.led-on{
-    background-color: #00FF00;
-    color:  #00FF00;
+    background: #00FF00;
+    box-shadow: 0 0 3px #00FF00;
   }
   &.led-off {
     background-color: #ff4c4c;
-    color:  #ff4c4c;
+    box-shadow: 0 0 3px #ff4c4c;
   }
 }
 
@@ -119,6 +137,8 @@ body {
   display: none;
 }
 
+
+// Footer styling
 footer {
   position: fixed;
   left: 0;
@@ -141,23 +161,27 @@ footer {
   }
 }
 
+// Small screens and above
 @media (min-width: 576px) {
-   body {
-    font-size: 12px;
-  }
-  .btn-filter {
-    width: 150px;
+  body {
+    font-size: 13px;
   }
 }
 
+// Medium screen and above
 @media (min-width: 768px) {
   body {
     font-size: 14px;
   }
-  .btn-filter {
-    width: 200px;
+  .header {
+    display: block;
+  }
+  .btn-group {
+    top: 120px;
+    margin: 0 auto 30px;
   }
   .content {
+    margin-top: 190px;
     img {
       width: 50px;
       height: 50px;
