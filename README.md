@@ -1,0 +1,2 @@
+# TwitchTV Tracker
+This web app was developed as one of <a href="http://www.freecodecamp.com" target="_blank">freeCodeCamp's</a> intermediate front-end projects. The goal was to use the Twitch.tv JSON API to detect whether each Twitch channel from a selected list is online or not, and to provide the main information about the channel to the user. I achieved this using Bootstrap 4, CSS and jQuery. The trickiest aspect of this project was to get the page layout to scale how I wanted it to, but I am quite happy with the result.
