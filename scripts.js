@@ -22,7 +22,6 @@ function getInfo() {
   channels.forEach(function(channel) {
     var url = "https://wind-bow.gomix.me/twitch-api/streams/" + channel + "?callback=?";
     $.getJSON(url, function(data) {
-      console.log(data);
       var status, game;
       if (data.stream === undefined) {
         status = "off";
